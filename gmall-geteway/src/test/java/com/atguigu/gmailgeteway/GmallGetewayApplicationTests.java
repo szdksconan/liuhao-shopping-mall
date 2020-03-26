@@ -1,10 +1,10 @@
-package com.atguigu.gmall.pms;
+package com.atguigu.gmailgeteway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GmailPmsApplicationTests {
+class GmallGetewayApplicationTests {
 
 	@Test
 	void contextLoads() {
