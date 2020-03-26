@@ -18,6 +18,7 @@
         <module>gmall-sms</module>
         <module>gmall-wms</module>
         <module>gmall-generator</module>
+        <module>gmall-geteway</module>
     </modules>
 
 </project>
