@@ -1,4 +1,4 @@
-package com.atguigu.gmallsms;
+package com.atguigu.gmall;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
