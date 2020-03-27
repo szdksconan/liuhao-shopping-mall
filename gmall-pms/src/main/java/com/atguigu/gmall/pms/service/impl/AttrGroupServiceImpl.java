@@ -84,4 +84,16 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         return groupVO;
     }
 
+    @Override
+    public List<GroupVO> queryGroupWithAttrsByCid(Long cid) {
+        //根据分类ID 找到所有的组
+        List<AttrGroupEntity> list = this.list(new QueryWrapper<AttrGroupEntity>().eq("catelog_id",cid));
+        //根据分组中id查询中间表
+        //根据中间表attrids 查询参数
+        //数据类型转化
+        return list.stream().map(entity->
+            this.queryGroupWithAttrByGid(entity.getAttrGroupId())).collect(Collectors.toList());
+
+    }
+
 }

@@ -1,9 +1,12 @@
 package com.atguigu.gmall.pms.service;
 
+import com.atguigu.gmall.pms.vo.SpuInfoVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.atguigu.gmall.pms.entity.SpuInfoEntity;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
+
+import java.io.FileNotFoundException;
 
 
 /**
@@ -17,6 +20,8 @@ public interface SpuInfoService extends IService<SpuInfoEntity> {
 
     PageVo queryPage(QueryCondition params);
 
-    PageVo querySpuInfoByPage(QueryCondition queryCondition,Long catId);
+    PageVo querySpuPage(QueryCondition queryCondition,Long catId);
+
+    void bigSave(SpuInfoVO spuInfoVO) throws FileNotFoundException;
 }
 
