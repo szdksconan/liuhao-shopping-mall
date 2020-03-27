@@ -29,5 +29,8 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
         ##namespace: 9c76dca1-9d93-4055-9401-8bbeb629596e
+  application:
+    name: geteway
+
 
 
