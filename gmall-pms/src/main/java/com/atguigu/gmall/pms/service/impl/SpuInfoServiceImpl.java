@@ -1,6 +1,6 @@
 package com.atguigu.gmall.pms.service.impl;
 
-import com.aiguigu.gmall.sms.api.SkuSaleVO;
+import com.atguigu.gmall.sms.api.SkuSaleVO;
 import com.atguigu.gmall.pms.dao.SkuInfoDao;
 import com.atguigu.gmall.pms.dao.SpuInfoDescDao;
 import com.atguigu.gmall.pms.entity.*;

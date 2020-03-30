@@ -1,6 +1,6 @@
 package com.atguigu.gmall.sms.service;
 
-import com.aiguigu.gmall.sms.api.SkuSaleVO;
+import com.atguigu.gmall.sms.api.SkuSaleVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.atguigu.gmall.sms.entity.SkuBoundsEntity;
 import com.atguigu.core.bean.PageVo;

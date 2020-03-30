@@ -3,7 +3,7 @@ package com.atguigu.gmall.sms.controller;
 import java.util.Arrays;
 
 
-import com.aiguigu.gmall.sms.api.SkuSaleVO;
+import com.atguigu.gmall.sms.api.SkuSaleVO;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
