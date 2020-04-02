@@ -9,8 +9,10 @@ import com.atguigu.gmall.pms.service.*;
 import com.atguigu.gmall.pms.vo.BaseAttrVO;
 import com.atguigu.gmall.pms.vo.SkuInfoVO;
 import com.atguigu.gmall.pms.vo.SpuInfoVO;
+import com.baomidou.mybatisplus.extension.service.additional.query.impl.LambdaQueryChainWrapper;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -62,12 +64,12 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     @Autowired
     private GmallSmsClient gmallSmsClient;
 
-    /*
-    @Autowired
-    private AmqpTemplate amqpTemplate;*/
 
-   /* @Value("${item.rabbitmq.exchange}")
-    private String EXCHANGE_NAME;*/
+    @Autowired
+    private AmqpTemplate amqpTemplate;
+
+    @Value("${config.rabbitmq.exchange}")
+    private String EXCHANGE_NAME;
 
     @Override
     public PageVo queryPage(QueryCondition params) {
@@ -132,7 +134,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
     private void sendMsg(String type, Long spuId){
 
-        /*this.amqpTemplate.convertAndSend(EXCHANGE_NAME, "item." + type, spuId);*/
+        this.amqpTemplate.convertAndSend(EXCHANGE_NAME, "item." + type, spuId);
     }
 
     private void saveSkuAndSale(SpuInfoVO spuInfoVO, Long spuId) {
@@ -197,12 +199,12 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     }
 
 
-
     private Long saveSpuInfo(SpuInfoVO spuInfoVO) {
         spuInfoVO.setCreateTime(new Date());
         spuInfoVO.setUodateTime(spuInfoVO.getCreateTime());
         this.save(spuInfoVO);
         return spuInfoVO.getId();
     }
+
 
 }

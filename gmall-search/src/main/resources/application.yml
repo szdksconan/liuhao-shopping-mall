@@ -8,3 +8,9 @@ spring:
   elasticsearch:
     rest:
       uris: http://127.0.0.1:9200
+  rabbitmq:
+      host: 127.0.0.1
+      virtual-host: /liuhao
+      password: liuhao
+      username: liuhao
+      port: 5672

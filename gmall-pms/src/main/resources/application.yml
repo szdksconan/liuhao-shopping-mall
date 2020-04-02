@@ -3,3 +3,12 @@ spring:
     alibaba:
       seata:
         tx-service-group: tx-service-group
+  rabbitmq:
+    host: 127.0.0.1
+    virtual-host: /liuhao
+    password: liuhao
+    username: liuhao
+    port: 5672
+config:
+  rabbitmq:
+    exchange: GMALL-PMS-EXCHANGE
