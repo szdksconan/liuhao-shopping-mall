@@ -22,9 +22,15 @@ spring:
           predicates:
             - Path=/ums/**
         - id: sms_route
-          uri: lb:sms-service
+          uri: lb://sms-service
           predicates:
             - Path=/sms/**
+        - id: index_route
+          uri: lb://index-service
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*), $\{segment}
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848

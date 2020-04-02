@@ -8,6 +8,7 @@ import java.util.Map;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.pms.vo.CategoryVO;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -51,6 +52,11 @@ public class CategoryController {
         return Resp.ok(list);
     }
 
+    @GetMapping("{pid}")
+    public Resp<List<CategoryVO>> querySubCategories(@PathVariable("pid")Long pid){
+       return Resp.ok(categoryService.querySubCategories(pid));
+    }
+
     /**
      * 列表
      */
@@ -59,7 +65,6 @@ public class CategoryController {
     @PreAuthorize("hasAuthority('pms:category:list')")
     public Resp<PageVo> list(QueryCondition queryCondition) {
         PageVo page = categoryService.queryPage(queryCondition);
-
         return Resp.ok(page);
     }
 
